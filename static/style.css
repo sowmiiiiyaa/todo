@@ -1,0 +1,45 @@
+/* Soft pastel lavender theme, clean and minimal */
+:root{
+  --lavender-100: #f6f5fb;
+  --lavender-200: #efe9fb;
+  --lavender-300: #e6ddfa;
+  --lavender-400: #bda6f0;
+  --accent-1: #4e3d7a;
+  --muted: #7a728a;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--lavender-100);
+  color: #2e2e3a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+.app{max-width:760px; margin:0 auto}
+.header{display:flex; align-items:center; gap:12px; margin-bottom:18px}
+.header h1{margin:0; color:var(--accent-1)}
+
+.add-form{display:flex; gap:10px; margin-bottom:18px}
+.add-form input{flex:1; padding:12px 14px; border-radius:10px; border:1px solid var(--lavender-200); background:white; font-size:15px}
+
+.btn{padding:10px 14px; border-radius:10px; border:none; cursor:pointer; font-weight:600}
+.btn.primary{background:var(--lavender-400); color:white}
+.btn.danger{background:#ffd6e6; color:#6b2230}
+.btn.toggle{background:transparent; color:var(--accent-1); font-size:16px; padding:6px 10px}
+
+.todos{list-style:none; padding:0; margin:0; display:grid; gap:12px}
+.card{display:flex; align-items:center; gap:12px; padding:12px; background:white; border-radius:12px; box-shadow:0 6px 18px rgba(78,61,122,0.06)}
+.card.done{opacity:0.65; text-decoration:line-through; background:var(--lavender-100)}
+.inline{margin:0}
+.title{flex:1}
+.muted{color:var(--muted)}
+.footer{margin-top:18px; color:var(--muted); font-size:13px}
+
+@media (max-width:520px){
+  .add-form{flex-direction:column}
+  .add-form input{width:100%}
+  .btn{width:100%}
+}

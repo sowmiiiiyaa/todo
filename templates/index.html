@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <form class="add-form" action="{{ url_for('add') }}" method="post">
+    <input name="title" placeholder="Add a new task…" required>
+    <button class="btn primary" type="submit">Add</button>
+  </form>
+
+  <ul class="todos">
+    {% for t in todos %}
+      <li class="card {% if t.completed %}done{% endif %}">
+        <form action="{{ url_for('toggle', todo_id=t.id) }}" method="post" class="inline">
+          <button class="btn toggle" type="submit">{{ '✓' if t.completed else '○' }}</button>
+        </form>
+        <div class="title">{{ t.title }}</div>
+        <form action="{{ url_for('delete', todo_id=t.id) }}" method="post" class="inline">
+          <button class="btn danger" type="submit">Delete</button>
+        </form>
+      </li>
+    {% else %}
+      <li class="muted">No tasks yet — add one above.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
